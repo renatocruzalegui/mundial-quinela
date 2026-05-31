@@ -4,8 +4,10 @@
     "\\app",
     "\\app\\(protected)",
     "\\app\\(protected)\\dashboard",
+    "\\app\\(protected)\\predictions",
+    "\\app\\(protected)\\ranking",
     "\\components"
   ],
-  "SelectedNode": "\\components\\match-card.tsx",
+  "SelectedNode": "\\app\\(protected)\\ranking\\page.tsx",
   "PreviewInSolutionExplorer": false
 }
