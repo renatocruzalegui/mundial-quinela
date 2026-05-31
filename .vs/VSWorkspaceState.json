@@ -6,8 +6,10 @@
     "\\app\\(protected)\\dashboard",
     "\\app\\(protected)\\predictions",
     "\\app\\(protected)\\ranking",
-    "\\components"
+    "\\components",
+    "\\lib",
+    "\\lib\\supabase"
   ],
-  "SelectedNode": "\\app\\(protected)\\dashboard\\page.tsx",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }
