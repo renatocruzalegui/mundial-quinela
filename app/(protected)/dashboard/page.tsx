@@ -1,6 +1,8 @@
 ﻿import { createClient } from "@/lib/supabase/server";
 import MatchCard from "@/components/match-card";
 
+export const dynamic = "force-dynamic";
+
 type Team = {
     id: number;
     name: string;
