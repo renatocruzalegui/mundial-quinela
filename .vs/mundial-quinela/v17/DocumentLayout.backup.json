@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Cheiyi\\mundial-quinela\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\next.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:next.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\(protected)\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\app\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\dashboard\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\(protected)\\dashboard\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\lib\\supabase\\server.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:lib\\supabase\\server.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\ranking\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
@@ -19,24 +39,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:components\\match-card.tsx||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\(protected)\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\app\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\app\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\(protected)\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\next.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:next.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cheiyi\\mundial-quinela\\components\\login-form.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
@@ -62,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -75,6 +83,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\package.json",
+              "RelativeDocumentMoniker": "package.json",
+              "ToolTip": "C:\\Users\\Cheiyi\\mundial-quinela\\package.json",
+              "RelativeToolTip": "package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-31T07:52:40.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "server.ts",
+              "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\lib\\supabase\\server.ts",
+              "RelativeDocumentMoniker": "lib\\supabase\\server.ts",
+              "ToolTip": "C:\\Users\\Cheiyi\\mundial-quinela\\lib\\supabase\\server.ts",
+              "RelativeToolTip": "lib\\supabase\\server.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-05-31T07:41:58.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "page.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\ranking\\page.tsx",
               "RelativeDocumentMoniker": "app\\(protected)\\ranking\\page.tsx",
@@ -82,12 +115,11 @@
               "RelativeToolTip": "app\\(protected)\\ranking\\page.tsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-05-31T07:33:40.532Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-31T07:33:40.532Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "page.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\predictions\\page.tsx",
               "RelativeDocumentMoniker": "app\\(protected)\\predictions\\page.tsx",
@@ -99,19 +131,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "next.config.ts",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\next.config.ts",
               "RelativeDocumentMoniker": "next.config.ts",
               "ToolTip": "C:\\Users\\Cheiyi\\mundial-quinela\\next.config.ts",
               "RelativeToolTip": "next.config.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-05-31T02:56:25.371Z"
+              "WhenOpened": "2026-05-31T02:56:25.371Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "login-form.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\components\\login-form.tsx",
               "RelativeDocumentMoniker": "components\\login-form.tsx",
@@ -123,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "logout-button.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\components\\logout-button.tsx",
               "RelativeDocumentMoniker": "components\\logout-button.tsx",
@@ -135,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "page.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\auth\\sign-up\\page.tsx",
               "RelativeDocumentMoniker": "app\\auth\\sign-up\\page.tsx",
@@ -147,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "page.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\auth\\sign-up-success\\page.tsx",
               "RelativeDocumentMoniker": "app\\auth\\sign-up-success\\page.tsx",
@@ -159,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "page.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\page.tsx",
               "RelativeDocumentMoniker": "app\\(protected)\\page.tsx",
@@ -171,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "layout.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\layout.tsx",
               "RelativeDocumentMoniker": "app\\layout.tsx",
@@ -183,32 +216,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "layout.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\layout.tsx",
               "RelativeDocumentMoniker": "app\\(protected)\\layout.tsx",
               "ToolTip": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\layout.tsx",
               "RelativeToolTip": "app\\(protected)\\layout.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2026-05-31T02:09:24.275Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "page.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\dashboard\\page.tsx",
               "RelativeDocumentMoniker": "app\\(protected)\\dashboard\\page.tsx",
               "ToolTip": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\(protected)\\dashboard\\page.tsx",
               "RelativeToolTip": "app\\(protected)\\dashboard\\page.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-05-31T01:56:17.759Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-31T01:56:17.759Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "match-card.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\components\\match-card.tsx",
               "RelativeDocumentMoniker": "components\\match-card.tsx",
@@ -220,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "page.tsx",
               "DocumentMoniker": "C:\\Users\\Cheiyi\\mundial-quinela\\app\\page.tsx",
               "RelativeDocumentMoniker": "app\\page.tsx",

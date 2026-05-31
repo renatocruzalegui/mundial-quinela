@@ -2,14 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\(protected)",
     "\\app\\(protected)\\dashboard",
     "\\app\\(protected)\\predictions",
     "\\app\\(protected)\\ranking",
-    "\\components",
-    "\\lib",
+    "\\app\\auth",
     "\\lib\\supabase"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\next.config.ts",
   "PreviewInSolutionExplorer": false
 }
