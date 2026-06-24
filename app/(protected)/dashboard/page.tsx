@@ -1,5 +1,4 @@
 ﻿import { createClient } from "@/lib/supabase/server";
-import MatchCard from "@/components/match-card";
 import DashboardTabs from "@/components/dashboard-tabs";
 
 type Team = {
@@ -77,6 +76,16 @@ export default async function DashboardPage() {
             initialPrediction: predictionsMap.get(match.id) ?? "",
         })) ?? [];
 
+    const { data: teams } = await supabase
+    .from("teams")
+    .select("id, name, code, flag_url")
+    .order("name");
+
+    const { data: extraPredictions } = await supabase
+        .from("extra_predictions")
+        .select("bet_type, team_id")
+        .eq("user_id", user!.id);
+
     return (
         <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-10">
@@ -89,7 +98,11 @@ export default async function DashboardPage() {
                 </p>
             </div>
 
-            <DashboardTabs matches={matchesWithPredictions} />
+            <DashboardTabs
+            matches={matchesWithPredictions}
+            teams={teams ?? []}
+            extraPredictions={extraPredictions ?? []}
+            />
         </div>
     );
 }
