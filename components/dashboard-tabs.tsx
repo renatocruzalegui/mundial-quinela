@@ -17,6 +17,9 @@ type Match = {
     home_team: Team;
     away_team: Team;
     initialPrediction?: string;
+    result: string;
+    home_score: number;
+    away_score: number;
 };
 
 type Props = {
@@ -87,6 +90,9 @@ export default function DashboardTabs({ matches }: Props) {
                             stage={match.stage}
                             kickoff={match.kickoff}
                             initialPrediction={match.initialPrediction}
+                            result={match.result}
+                            home_score={match.home_score}
+                            away_score={match.away_score}
                         />
                     ))
                 )}

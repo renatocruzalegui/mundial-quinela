@@ -18,6 +18,9 @@ type Props = {
     stage: string;
     kickoff: string;
     initialPrediction?: string;
+    result: string | null;
+    home_score: number;
+    away_score: number;
 };
 
 export default function MatchCard({
@@ -26,15 +29,32 @@ export default function MatchCard({
     awayTeam,
     stage,
     kickoff,
-    initialPrediction
+    initialPrediction,
+    result,
+    home_score,
+    away_score
 }: Props) {
     const [prediction, setPrediction] = useState(
         initialPrediction ?? ""
     );
 
+    const [predictionModified, setPredictionModified] = useState(
+        initialPrediction ?? ""
+    );
+
+    const isLocked = new Date() >= new Date(kickoff);
+
+    const correct = prediction === result;
+
     const supabase = createClient();
 
     async function savePrediction() {
+        const isLocked = new Date() >= new Date(kickoff);
+        if (isLocked) {
+            alert("El partido ya comenzó");
+            return;
+        }
+        
         const {
             data: { user },
         } = await supabase.auth.getUser();
@@ -63,11 +83,18 @@ export default function MatchCard({
             return;
         }
 
-        alert("Pronostico guardado");
+        setPredictionModified(prediction)
     }
 
     return (
-        <div className="w-full max-w-xl mx-auto bg-white rounded-2xl shadow-md border p-6 dark:bg-gray-900">
+        <div
+            className={`
+                w-full max-w-xl mx-auto rounded-2xl shadow-md border p-6
+                ${isLocked
+                ? "bg-gray-100 border-gray-300 dark:bg-gray-800"
+                : "bg-white border-gray-200 dark:bg-gray-900"}
+            `}
+            >
             <div className="text-center mb-4">
                 <p className="text-sm text-gray-500">
                     {stage}
@@ -75,7 +102,18 @@ export default function MatchCard({
 
                 <p className="text-xs text-gray-400">
                     {new Date(kickoff).toLocaleString("es-PE")}
+                    
                 </p>
+                {isLocked && (
+                <div className="mt-2 text-center text-red-600 font-medium">
+                    🔒 Pronósticos cerrados
+                </div>
+                )}
+                {!isLocked && (
+                <div className="mt-2 text-center text-green-600 font-medium">
+                    🟢 Pronósticos abiertos
+                </div>
+                )}
             </div>
 
             <div className="flex items-center justify-center gap-4 md:gap-8 mb-6">
@@ -93,9 +131,37 @@ export default function MatchCard({
                     </span>
                 </div>
 
-                <div className="font-bold text-xl text-gray-500">
+                <div className="font-bold text-xl text-gray-500 text-center">
                     VS
+                    {result && (
+                      <div className="text-center mt-4">
+                        <p className="font-semibold text-green-600">
+                        Resultado: {result == "HOME" ? homeTeam.name : awayTeam.name}
+                        </p>
+                    </div>
+                    )}
+                    {home_score !== null && away_score !== null && (
+                    <div className="text-center mt-4">
+                        <div className="text-3xl font-bold">
+                        {home_score} - {away_score}
+                        </div>
+                    </div>
+                    )}
+                    {result && (
+                    <div className="mt-3 text-center">
+                        {correct ? (
+                        <span className="text-green-600 font-bold">
+                            ✅ +1 punto
+                        </span>
+                        ) : (
+                        <span className="text-red-600 font-bold">
+                            ❌ Fallaste
+                        </span>
+                        )}
+                    </div>
+                    )}
                 </div>
+
 
                 <div className="flex flex-col items-center text-center">
                     <Image
@@ -118,6 +184,7 @@ export default function MatchCard({
                         type="radio"
                         name={`prediction-${matchId}`}
                         value="HOME"
+                        disabled={isLocked}
                         checked={prediction === "HOME"}
                         onChange={(e) => setPrediction(e.target.value)}
                     />
@@ -129,6 +196,7 @@ export default function MatchCard({
                         type="radio"
                         name={`prediction-${matchId}`}
                         value="AWAY"
+                        disabled={isLocked}
                         checked={prediction === "AWAY"}
                         onChange={(e) => setPrediction(e.target.value)}
                     />
@@ -136,18 +204,18 @@ export default function MatchCard({
                 </label>
             </div>
 
-            {initialPrediction && (
+            {predictionModified && (
                 <p className="mt-4 text-green-600 text-sm font-medium text-center">
-                    ✓ Pronóstico guardado: {prediction == "HOME" ? homeTeam.name : prediction == "AWAY" ? awayTeam.name : ""}
+                    ✓ Pronóstico guardado: {predictionModified == "HOME" ? homeTeam.name : predictionModified == "AWAY" ? awayTeam.name : ""}
                 </p>
             )}
 
             <button
                 onClick={savePrediction}
-                disabled={!prediction}
+                disabled={!prediction  || isLocked}
                 className="mt-5 w-full bg-blue-600 text-white py-3 rounded-lg font-medium disabled:bg-gray-300 dark:bg-gray-800"
             >
-                Guardar Pronostico
+                {isLocked ? "Partido iniciado" : "Guardar Pronóstico"}
             </button>
         </div>
     );

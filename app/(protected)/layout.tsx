@@ -14,6 +14,12 @@ export default async function ProtectedLayout({
         data: { user },
     } = await supabase.auth.getUser();
 
+    const { data: profile } = await supabase
+        .from("profiles")
+        .select("display_name")
+        .eq("id", user!.id)
+        .single();
+
     if (!user) {
         redirect("/auth/login");
     }
@@ -51,8 +57,8 @@ export default async function ProtectedLayout({
 
                         {/* Usuario */}
                         <div className="flex items-center gap-4">
-                            <span className="text-sm text-gray-600">
-                                {user.email}
+                            <span className="text-sm text-gray-600 dark:text-white">
+                                {profile?.display_name}
                             </span>
 
                             <LogoutButton />

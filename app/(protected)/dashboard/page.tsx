@@ -15,6 +15,9 @@ type Match = {
     kickoff: string;
     home_team: Team;
     away_team: Team;
+    result: string;
+    home_score: number;
+    away_score: number;
 };
 
 export default async function DashboardPage() {
@@ -26,6 +29,9 @@ export default async function DashboardPage() {
       id,
       stage,
       kickoff,
+      result,
+      home_score,
+      away_score,
       home_team:teams!matches_home_team_id_fkey (
         id,
         name,
