@@ -192,7 +192,7 @@ export default function MatchCard({
                     <div className="mt-3 text-center">
                         {correct ? (
                         <span className="text-green-600 font-bold">
-                            ✅ +1 punto
+                            ✅ +{stage == "Eliminatoria de 32" ? "1" : stage == "Octavos de final" ? "2" : stage == "Cuartos de final" ? "4" : stage == "Semifinales" ? "6" : stage == "Eliminatoria por tercer lugar" ? "6" : stage == "Final" ? "10" : 0} punto
                         </span>
                         ) : (
                         <span className="text-red-600 font-bold">
