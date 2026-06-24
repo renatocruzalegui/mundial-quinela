@@ -20,7 +20,7 @@ export function LoginForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
-  const [email, setEmail] = useState("");
+  const [dni, setDni] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -31,6 +31,8 @@ export function LoginForm({
     const supabase = createClient();
     setIsLoading(true);
     setError(null);
+
+    const email = `${dni}`;
 
     try {
       const { error } = await supabase.auth.signInWithPassword({
@@ -66,8 +68,8 @@ export function LoginForm({
                   type="email"
                   placeholder="m@example.com"
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={dni}
+                  onChange={(e) => setDni(e.target.value)}
                 />
               </div>
               <div className="grid gap-2">
