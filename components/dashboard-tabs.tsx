@@ -58,21 +58,27 @@ export default function DashboardTabs({ matches }: Props) {
 
     return (
         <div>
-            <div className="mb-6 overflow-x-auto">
+            <div className="mb-8">
+            <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-2 shadow-sm overflow-x-auto">
                 <div className="flex gap-2 min-w-max">
-                    {tabs.map((tab) => (
-                        <button
-                            key={tab.label}
-                            onClick={() => setActiveTab(tab.label)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium border ${activeTab === tab.label
-                                    ? "bg-blue-600 text-white border-blue-600"
-                                    : "bg-white text-gray-700 border-gray-300"
-                                }`}
-                        >
-                            {tab.label}
-                        </button>
-                    ))}
+                {tabs.map((tab) => (
+                    <button
+                    key={tab.label}
+                    onClick={() => setActiveTab(tab.label)}
+                    className={`
+                        px-4 py-3 rounded-xl text-sm font-semibold transition
+                        ${
+                        activeTab === tab.label
+                            ? "bg-blue-600 text-white shadow"
+                            : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                        }
+                    `}
+                    >
+                    {tab.label}
+                    </button>
+                ))}
                 </div>
+            </div>
             </div>
 
             <div className="space-y-6">
