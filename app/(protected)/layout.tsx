@@ -41,25 +41,12 @@ export default async function ProtectedLayout({
                             </Link>
 
                             <Link
-                                href="/predictions"
-                                className="hover:text-blue-600"
-                            >
-                                Pronósticos
-                            </Link>
-
-                            <Link
                                 href="/ranking"
                                 className="hover:text-blue-600"
                             >
                                 Ranking
                             </Link>
 
-                            <Link
-                                href="/profile"
-                                className="hover:text-blue-600"
-                            >
-                                Mi Perfil
-                            </Link>
                         </div>
 
                         {/* Usuario */}
