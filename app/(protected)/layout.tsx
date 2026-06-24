@@ -2,7 +2,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { LogoutButton } from "@/components/logout-button";
-import MobileNav from "@/components/mobile-nav";
+//import MobileNav from "@/components/mobile-nav";
 import MobileMenu from "@/components/mobile-menu";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 
