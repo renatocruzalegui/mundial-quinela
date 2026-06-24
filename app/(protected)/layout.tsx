@@ -2,6 +2,9 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { LogoutButton } from "@/components/logout-button";
+import MobileNav from "@/components/mobile-nav";
+import MobileMenu from "@/components/mobile-menu";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 
 export default async function ProtectedLayout({
     children,
@@ -24,52 +27,46 @@ export default async function ProtectedLayout({
         redirect("/auth/login");
     }
 
-    return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-800">
-            <nav className="bg-white border-b shadow-sm dark:bg-gray-900">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="h-16 flex items-center justify-between">
-                        {/* Logo */}
-                        <Link
-                            href="/dashboard"
-                            className="font-bold text-xl"
-                        >
-                            🏆 Quiniela Mundial 2026
-                        </Link>
+return (
+  <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-white">
+    <nav className="bg-white border-b shadow-sm dark:bg-gray-900 dark:border-gray-700">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="h-16 flex items-center justify-between">
+          <Link
+            href="/dashboard"
+            className="font-bold text-base md:text-xl truncate"
+          >
+            🏆 Quiniela Mundial 2026
+          </Link>
 
-                        {/* Menú */}
-                        <div className="flex items-center gap-6">
-                            <Link
-                                href="/dashboard"
-                                className="hover:text-blue-600"
-                            >
-                                Inicio
-                            </Link>
+          <div className="hidden md:flex items-center gap-6">
+            <Link href="/dashboard" className="hover:text-blue-600">
+              Inicio
+            </Link>
 
-                            <Link
-                                href="/ranking"
-                                className="hover:text-blue-600"
-                            >
-                                Ranking
-                            </Link>
+            <Link href="/ranking" className="hover:text-blue-600">
+              Ranking
+            </Link>
+          </div>
 
-                        </div>
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeSwitcher />
 
-                        {/* Usuario */}
-                        <div className="flex items-center gap-4">
-                            <span className="text-sm text-gray-600 dark:text-white">
-                                {profile?.display_name}
-                            </span>
+            <span className="text-sm text-gray-600 dark:text-gray-300">
+              {profile?.display_name}
+            </span>
 
-                            <LogoutButton />
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <LogoutButton />
+          </div>
 
-            <main className="max-w-7xl mx-auto p-6">
-                {children}
-            </main>
+          <MobileMenu displayName={profile?.display_name} />
         </div>
-    );
+      </div>
+    </nav>
+
+    <main className="max-w-7xl mx-auto p-4 md:p-6">
+      {children}
+    </main>
+  </div>
+);
 }
