@@ -67,7 +67,7 @@ export default function MatchCard({
     }
 
     return (
-        <div className="w-full max-w-xl mx-auto bg-white rounded-2xl shadow-md border p-6">
+        <div className="w-full max-w-xl mx-auto bg-white rounded-2xl shadow-md border p-6 dark:bg-gray-900">
             <div className="text-center mb-4">
                 <p className="text-sm text-gray-500">
                     {stage}
@@ -145,7 +145,7 @@ export default function MatchCard({
             <button
                 onClick={savePrediction}
                 disabled={!prediction}
-                className="mt-5 w-full bg-blue-600 text-white py-3 rounded-lg font-medium disabled:bg-gray-300"
+                className="mt-5 w-full bg-blue-600 text-white py-3 rounded-lg font-medium disabled:bg-gray-300 dark:bg-gray-800"
             >
                 Guardar Pronostico
             </button>

@@ -19,8 +19,8 @@ export default async function ProtectedLayout({
     }
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <nav className="bg-white border-b shadow-sm">
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-800">
+            <nav className="bg-white border-b shadow-sm dark:bg-gray-900">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="h-16 flex items-center justify-between">
                         {/* Logo */}
