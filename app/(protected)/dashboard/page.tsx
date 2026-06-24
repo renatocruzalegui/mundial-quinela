@@ -1,6 +1,6 @@
 ﻿import { createClient } from "@/lib/supabase/server";
 import MatchCard from "@/components/match-card";
-
+import DashboardTabs from "@/components/dashboard-tabs";
 
 type Team = {
     id: number;
@@ -65,6 +65,12 @@ export default async function DashboardPage() {
     }
 
 
+    const matchesWithPredictions =
+        matches?.map((match) => ({
+            ...match,
+            initialPrediction: predictionsMap.get(match.id) ?? "",
+        })) ?? [];
+
     return (
         <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-10">
@@ -77,19 +83,7 @@ export default async function DashboardPage() {
                 </p>
             </div>
 
-            <div className="space-y-6">
-                {matches?.map((match) => (
-                    <MatchCard
-                        key={match.id}
-                        matchId={match.id}
-                        homeTeam={match.home_team}
-                        awayTeam={match.away_team}
-                        stage={match.stage}
-                        kickoff={match.kickoff}
-                        initialPrediction={predictionsMap.get(match.id)}
-                    />
-                ))}
-            </div>
+            <DashboardTabs matches={matchesWithPredictions} />
         </div>
     );
 }

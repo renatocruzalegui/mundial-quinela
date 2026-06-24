@@ -123,17 +123,6 @@ export default function MatchCard({
                     />
                     {homeTeam.name}
                 </label>
-
-                <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                        type="radio"
-                        name={`prediction-${matchId}`}
-                        value="DRAW"
-                        checked={prediction === "DRAW"}
-                        onChange={(e) => setPrediction(e.target.value)}
-                    />
-                    Empate
-                </label>
                 
                 <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -149,7 +138,7 @@ export default function MatchCard({
 
             {initialPrediction && (
                 <p className="mt-4 text-green-600 text-sm font-medium text-center">
-                    ✓ Pronóstico guardado: {initialPrediction}
+                    ✓ Pronóstico guardado: {prediction == "HOME" ? homeTeam.name : prediction == "AWAY" ? awayTeam.name : ""}
                 </p>
             )}
 
