@@ -32,7 +32,7 @@ export function LoginForm({
     setIsLoading(true);
     setError(null);
 
-    const email = `${dni}`;
+    const email = `${dni}@quiniela.local`;
 
     try {
       const { error } = await supabase.auth.signInWithPassword({
@@ -65,7 +65,7 @@ export function LoginForm({
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
-                  type="email"
+                  type="text"
                   placeholder="m@example.com"
                   required
                   value={dni}
