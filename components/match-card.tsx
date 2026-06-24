@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
 type Team = {
@@ -22,6 +22,7 @@ type Props = {
     home_score: number;
     away_score: number;
 };
+
 
 export default function MatchCard({
     matchId,
@@ -86,6 +87,43 @@ export default function MatchCard({
         setPredictionModified(prediction)
     }
 
+    const [timeLeft, setTimeLeft] = useState("");
+
+    useEffect(() => {
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const kickoffTime = new Date(kickoff).getTime();
+        const distance = kickoffTime - now;
+
+        if (distance <= 0) {
+        setTimeLeft("Partido iniciado");
+        return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if (days > 0) {
+        setTimeLeft(`${days}d ${hours}h ${minutes}m`);
+        } else {
+        setTimeLeft(`${hours}h ${minutes}m ${seconds}s`);
+        }
+    }
+
+    updateCountdown();
+
+    const interval = setInterval(updateCountdown, 1000);
+
+    return () => clearInterval(interval);
+    }, [kickoff]);
+
+
     return (
         <div
             className={`
@@ -103,6 +141,9 @@ export default function MatchCard({
                 <p className="text-xs text-gray-400">
                     {new Date(kickoff).toLocaleString("es-PE")}
                     
+                </p>
+                <p className="mt-2 text-sm font-semibold text-blue-600 dark:text-blue-400">
+                ⏳ {timeLeft}
                 </p>
                 {isLocked && (
                 <div className="mt-2 text-center text-red-600 font-medium">

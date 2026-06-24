@@ -47,6 +47,10 @@ return (
             <Link href="/ranking" className="hover:text-blue-600">
               Ranking
             </Link>
+
+            <Link href="/rules" className="hover:text-blue-600">
+                Reglas
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-4">

@@ -41,6 +41,10 @@ export default function MobileMenu({ displayName }: Props) {
             <Link href="/ranking">Ranking</Link>
           </DropdownMenuItem>
 
+          <DropdownMenuItem asChild>
+            <Link href="/rules">Reglas</Link>
+        </DropdownMenuItem>
+
           <div className="px-2 py-2">
             <LogoutButton />
           </div>
