@@ -66,7 +66,6 @@ export function LoginForm({
                 <Input
                   id="email"
                   type="text"
-                  placeholder="m@example.com"
                   required
                   value={dni}
                   onChange={(e) => setDni(e.target.value)}
