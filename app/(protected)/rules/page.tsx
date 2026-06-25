@@ -21,11 +21,11 @@ const sections = [
     title: "Premiación",
     icon: "🏆",
     items: [
-      "La participación es gratuita.",
-      "Existe un pozo de premios que será repartido entre los primeros lugares del ranking final.",
-      "La distribución exacta del pozo será definida por los organizadores.",
+      "La participación es completamente gratuita.",
+      "Al finalizar el torneo, el pozo será repartido entre los tres primeros lugares del ranking final.",
+      "La distribución de premios será la siguiente:",
     ],
-  },
+  }
 ];
 
 const points = [
@@ -56,29 +56,83 @@ export default function RulesPage() {
       </div>
 
       <div className="grid md:grid-cols-3 gap-5 mb-8">
-        {sections.map((section) => (
-          <section
-            key={section.title}
-            className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-6 shadow-sm"
-          >
-            <div className="text-4xl mb-4">{section.icon}</div>
+      {sections.map((section) => (
+        <section
+          key={section.title}
+          className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-6 shadow-sm"
+        >
+          <div className="text-4xl mb-4">{section.icon}</div>
 
-            <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
+          <h2 className="text-2xl font-bold mb-4">
+            {section.title}
+          </h2>
 
-            <ul className="space-y-3">
-              {section.items.map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3 text-sm text-gray-600 dark:text-gray-300 leading-relaxed"
-                >
-                  <span className="mt-1 h-2 w-2 rounded-full bg-blue-600 shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
-      </div>
+          <ul className="space-y-3">
+            {section.items.map((item) => (
+              <li
+                key={item}
+                className="flex gap-3 text-sm text-gray-600 dark:text-gray-300 leading-relaxed"
+              >
+                <span className="mt-1 h-2 w-2 rounded-full bg-blue-600 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          {section.title === "Premiación" && (
+            <div className="mt-6 grid grid-cols-1 gap-3">
+              <div className="rounded-2xl bg-yellow-100 dark:bg-yellow-900 border border-yellow-300 dark:border-yellow-700 p-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl">🥇</span>
+                  <div>
+                    <p className="font-semibold">1º Puesto</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      Campeón de la quiniela
+                    </p>
+                  </div>
+                </div>
+
+                <span className="text-2xl font-bold text-yellow-700 dark:text-yellow-300">
+                  S/ 280
+                </span>
+              </div>
+
+              <div className="rounded-2xl bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 p-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl">🥈</span>
+                  <div>
+                    <p className="font-semibold">2º Puesto</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      Subcampeón de la quiniela
+                    </p>
+                  </div>
+                </div>
+
+                <span className="text-2xl font-bold">
+                  S/ 170
+                </span>
+              </div>
+
+              <div className="rounded-2xl bg-orange-100 dark:bg-orange-900 border border-orange-300 dark:border-orange-700 p-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl">🥉</span>
+                  <div>
+                    <p className="font-semibold">3º Puesto</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      Tercer lugar de la quiniela
+                    </p>
+                  </div>
+                </div>
+
+                <span className="text-2xl font-bold text-orange-700 dark:text-orange-300">
+                  S/ 50
+                </span>
+              </div>
+            </div>
+          )}
+        </section>
+      ))}
+    </div>
 
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-6 shadow-sm">
         <h2 className="text-2xl font-bold mb-2">
