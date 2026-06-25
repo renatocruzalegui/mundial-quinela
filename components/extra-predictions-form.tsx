@@ -42,7 +42,7 @@ const bets = [
   { type: "RUNNER_UP", label: "🥈 2do puesto", points: 4 },
   { type: "THIRD_PLACE", label: "🥉 3er puesto", points: 4 },
   { type: "MOST_GOALS", label: "⚽ Equipo con más goles", points: 4 },
-  { type: "BIGGEST_WIN", label: "🥅 Mayor goleada", points: 4 },
+  { type: "BIGGEST_WIN", label: "🥅 Equipos con más goles en contra", points: 4 },
   { type: "MOST_RED_CARDS", label: "🟥 Equipo con más rojas", points: 4 },
 ];
 
