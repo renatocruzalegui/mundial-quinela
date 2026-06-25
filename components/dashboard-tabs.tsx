@@ -23,13 +23,22 @@ type Match = {
     away_score: number;
 };
 
+type ExtraResult = {
+  bet_type: string;
+  team_id: number | null;
+  points: number;
+};
+
 type Props = {
-    matches: Match[];
-    teams: Team[];
-    extraPredictions: {
+  matches: Match[];
+  teams: Team[];
+  extraPredictions: {
     bet_type: string;
     team_id: number;
-    }[];
+  }[];
+  extraResults: ExtraResult[];
+  extraPredictionsLocked: boolean;
+  extraPredictionsDeadline: string | null;
 };
 
 const tabs = [
@@ -64,6 +73,9 @@ export default function DashboardTabs({
   matches,
   teams,
   extraPredictions,
+  extraResults,
+  extraPredictionsLocked,
+  extraPredictionsDeadline,
 }: Props) {
   const [activeTab, setActiveTab] = useState(tabs[0].label);
 
@@ -105,6 +117,9 @@ export default function DashboardTabs({
           <ExtraPredictionsForm
             teams={teams}
             initialPredictions={extraPredictions}
+            extraResults={extraResults}
+            locked={extraPredictionsLocked}
+            deadline={extraPredictionsDeadline}
           />
         ) : filteredMatches.length === 0 ? (
           <p className="text-center text-gray-500 dark:text-gray-400">

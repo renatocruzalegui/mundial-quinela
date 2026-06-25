@@ -55,7 +55,7 @@ export function LoginForm({
         <CardHeader>
           <CardTitle className="text-2xl">Entrar</CardTitle>
           <CardDescription>
-            Ingresa tu DNI y tu contraseña
+            Ingresa tu DNI y contraseña
           </CardDescription>
         </CardHeader>
         <CardContent>

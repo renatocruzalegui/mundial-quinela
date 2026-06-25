@@ -86,6 +86,21 @@ export default async function DashboardPage() {
         .select("bet_type, team_id")
         .eq("user_id", user!.id);
 
+
+    const { data: extraResults } = await supabase
+        .from("extra_results")
+        .select("bet_type, team_id, points");
+
+    const firstKnockoutMatch = matches?.find(
+    (match) => match.stage === "Eliminatoria de 32"
+    );
+
+    const extraPredictionsDeadline = firstKnockoutMatch?.kickoff ?? null;
+
+    const extraPredictionsLocked = firstKnockoutMatch
+    ? new Date(firstKnockoutMatch.kickoff) <= new Date()
+    : false;
+
     return (
         <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-10">
@@ -93,16 +108,19 @@ export default async function DashboardPage() {
                     🏆 Quiniela Mundial 2026
                 </h1>
 
-                <p className="text-gray-500 mt-2">
+                <p className="text-gray-500 dark:text-gray-400 mt-2">
                     Realiza tus pronósticos antes del inicio de cada partido
                 </p>
             </div>
 
             <DashboardTabs
-            matches={matchesWithPredictions}
-            teams={teams ?? []}
-            extraPredictions={extraPredictions ?? []}
-            />
+                matches={matchesWithPredictions}
+                teams={teams ?? []}
+                extraPredictions={extraPredictions ?? []}
+                extraResults={extraResults ?? []}
+                extraPredictionsLocked={extraPredictionsLocked}
+                extraPredictionsDeadline={extraPredictionsDeadline}
+                />
         </div>
     );
 }
