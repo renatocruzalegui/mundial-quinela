@@ -40,8 +40,23 @@ export function LoginForm({
         password,
       });
       if (error) throw error;
-      // Update this route to redirect to an authenticated route. The user already has an active session.
-      router.push("/dashboard");
+
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
+
+        const { data: profile } = await supabase
+          .from("profiles")
+          .select("must_change_password")
+          .eq("id", user!.id)
+          .single();
+
+        if (profile?.must_change_password) {
+          router.push("/auth/update-password");
+        } else {
+          router.push("/dashboard");
+        }
+
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : "An error occurred");
     } finally {
@@ -55,14 +70,14 @@ export function LoginForm({
         <CardHeader>
           <CardTitle className="text-2xl">Entrar</CardTitle>
           <CardDescription>
-            Ingresa tu DNI y contraseña
+            Ingresa tu usuario y contraseña. Tu usuario es la primera letra de tu nombre seguida de tu primer apellido. Si es la primera vez que ingresas, el sistema te pedirá cambiar tu contraseña.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email">DNI</Label>
+                <Label htmlFor="email">Usuario</Label>
                 <Input
                   id="email"
                   type="text"
