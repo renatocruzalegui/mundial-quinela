@@ -56,11 +56,6 @@ export default function MatchCard({
   );
   const [timeLeft, setTimeLeft] = useState("");
 
-  useEffect(() => {
-    setPrediction(initialPrediction ?? "");
-    setPredictionModified(initialPrediction ?? "");
-  }, [initialPrediction, matchId]);
-
   const supabase = createClient();
 
   const isLocked = new Date() >= new Date(kickoff);
@@ -180,13 +175,14 @@ export default function MatchCard({
         )}
       </div>
 
-      <div className="flex items-center justify-center gap-4 md:gap-8 mb-6">
+      <div className="flex items-center justify-center gap-3 md:gap-8 mb-6">
         <button
           type="button"
           disabled={isLocked}
           onClick={() => setPrediction("HOME")}
           className={`
-            flex flex-col items-center rounded-2xl border p-4 transition w-36
+            flex flex-col items-center justify-between rounded-2xl border p-3 transition
+            w-[112px] h-[138px] md:w-36 md:h-[150px]
             disabled:opacity-50 disabled:cursor-not-allowed
             ${
               prediction === "HOME"
@@ -195,20 +191,22 @@ export default function MatchCard({
             }
           `}
         >
-          <Image
-            src={homeTeam.flag_url}
-            alt={homeTeam.name}
-            width={72}
-            height={54}
-            className="rounded"
-          />
+          <div className="relative w-[70px] h-[46px] overflow-hidden rounded-md bg-white">
+            <Image
+              src={homeTeam.flag_url}
+              alt={homeTeam.name}
+              fill
+              sizes="70px"
+              className="object-cover"
+            />
+          </div>
 
-          <span className="mt-3 font-semibold text-center">
+          <span className="h-[42px] flex items-center justify-center font-semibold text-center text-sm leading-tight">
             {homeTeam.name}
           </span>
         </button>
 
-        <div className="text-center min-w-[90px]">
+        <div className="text-center min-w-[64px] md:min-w-[90px]">
           <div className="text-2xl font-bold text-gray-500">VS</div>
 
           {home_score !== null && away_score !== null && (
@@ -219,7 +217,7 @@ export default function MatchCard({
 
           {result && (
             <div className="mt-3">
-              <p className="font-semibold text-green-600">
+              <p className="font-semibold text-green-600 text-sm">
                 Resultado:{" "}
                 {result === "HOME"
                   ? homeTeam.name
@@ -248,7 +246,8 @@ export default function MatchCard({
           disabled={isLocked}
           onClick={() => setPrediction("AWAY")}
           className={`
-            flex flex-col items-center rounded-2xl border p-4 transition w-36
+            flex flex-col items-center justify-between rounded-2xl border p-3 transition
+            w-[112px] h-[138px] md:w-36 md:h-[150px]
             disabled:opacity-50 disabled:cursor-not-allowed
             ${
               prediction === "AWAY"
@@ -257,15 +256,17 @@ export default function MatchCard({
             }
           `}
         >
-          <Image
-            src={awayTeam.flag_url}
-            alt={awayTeam.name}
-            width={72}
-            height={54}
-            className="rounded"
-          />
+          <div className="relative w-[70px] h-[46px] overflow-hidden rounded-md bg-white">
+            <Image
+              src={awayTeam.flag_url}
+              alt={awayTeam.name}
+              fill
+              sizes="70px"
+              className="object-cover"
+            />
+          </div>
 
-          <span className="mt-3 font-semibold text-center">
+          <span className="h-[42px] flex items-center justify-center font-semibold text-center text-sm leading-tight">
             {awayTeam.name}
           </span>
         </button>
