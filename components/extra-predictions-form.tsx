@@ -35,6 +35,12 @@ type Props = {
   extraResults: ExtraResult[];
   locked: boolean;
   deadline: string | null;
+  onPredictionsSaved?: (
+    predictions: {
+      bet_type: string;
+      team_id: number;
+    }[]
+  ) => void;
 };
 
 const bets = [
@@ -52,6 +58,7 @@ export default function ExtraPredictionsForm({
   extraResults,
   locked,
   deadline,
+  onPredictionsSaved,
 }: Props) {
   const supabase = createClient();
 
@@ -102,6 +109,13 @@ export default function ExtraPredictionsForm({
       toast.error("Error al guardar predicciones extra");
       return;
     }
+
+    onPredictionsSaved?.(
+      rows.map((row) => ({
+        bet_type: row.bet_type,
+        team_id: row.team_id,
+      }))
+    );
 
     toast.success("Predicciones guardadas correctamente");
   }

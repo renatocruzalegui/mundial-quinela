@@ -22,15 +22,19 @@ type Props = {
   result: string | null;
   home_score: number | null;
   away_score: number | null;
+  onPredictionSaved?: (matchId: number, prediction: string) => void;
 };
 
 function getStagePoints(stage: string) {
-  if (stage === "Eliminatoria de 32") return 1;
-  if (stage === "Octavos de final") return 2;
-  if (stage === "Cuartos de final") return 4;
-  if (stage === "Semifinales") return 6;
-  if (stage === "Eliminatoria por tercer lugar") return 6;
-  if (stage === "Final") return 10;
+  const normalizedStage = stage.toLowerCase();
+
+  if (normalizedStage === "eliminatoria de 32") return 1;
+  if (normalizedStage === "octavos de final") return 2;
+  if (normalizedStage === "cuartos de final") return 4;
+  if (normalizedStage === "semifinales") return 6;
+  if (normalizedStage === "eliminatoria por tercer lugar") return 6;
+  if (normalizedStage === "final") return 10;
+
   return 0;
 }
 
@@ -44,6 +48,7 @@ export default function MatchCard({
   result,
   home_score,
   away_score,
+  onPredictionSaved,
 }: Props) {
   const [prediction, setPrediction] = useState(initialPrediction ?? "");
   const [predictionModified, setPredictionModified] = useState(
@@ -51,15 +56,30 @@ export default function MatchCard({
   );
   const [timeLeft, setTimeLeft] = useState("");
 
+  useEffect(() => {
+    setPrediction(initialPrediction ?? "");
+    setPredictionModified(initialPrediction ?? "");
+  }, [initialPrediction, matchId]);
+
   const supabase = createClient();
 
   const isLocked = new Date() >= new Date(kickoff);
   const correct = result && predictionModified === result;
   const points = getStagePoints(stage);
 
+  useEffect(() => {
+    setPrediction(initialPrediction ?? "");
+    setPredictionModified(initialPrediction ?? "");
+  }, [initialPrediction, matchId]);
+
   async function savePrediction() {
     if (isLocked) {
       toast.error("El partido ya comenzó");
+      return;
+    }
+
+    if (!prediction) {
+      toast.error("Debes seleccionar un equipo");
       return;
     }
 
@@ -90,7 +110,9 @@ export default function MatchCard({
     }
 
     setPredictionModified(prediction);
-    toast.success("Pronóstico guardado correctamente");
+    onPredictionSaved?.(matchId, prediction);
+
+    toast.success("Predicción guardada correctamente");
   }
 
   useEffect(() => {
@@ -158,102 +180,96 @@ export default function MatchCard({
         )}
       </div>
 
-<div className="flex items-center justify-center gap-4 md:gap-8 mb-6">
+      <div className="flex items-center justify-center gap-4 md:gap-8 mb-6">
+        <button
+          type="button"
+          disabled={isLocked}
+          onClick={() => setPrediction("HOME")}
+          className={`
+            flex flex-col items-center rounded-2xl border p-4 transition w-36
+            disabled:opacity-50 disabled:cursor-not-allowed
+            ${
+              prediction === "HOME"
+                ? "border-blue-600 bg-blue-50 dark:bg-blue-950"
+                : "border-gray-200 bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800"
+            }
+          `}
+        >
+          <Image
+            src={homeTeam.flag_url}
+            alt={homeTeam.name}
+            width={72}
+            height={54}
+            className="rounded"
+          />
 
-  <button
-    type="button"
-    disabled={isLocked}
-    onClick={() => setPrediction("HOME")}
-    className={`
-      flex flex-col items-center rounded-2xl border p-4 transition w-36
-      disabled:opacity-50 disabled:cursor-not-allowed
-      ${
-        prediction === "HOME"
-          ? "border-blue-600 bg-blue-50 dark:bg-blue-950"
-          : "border-gray-200 bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800"
-      }
-    `}
-  >
-    <Image
-      src={homeTeam.flag_url}
-      alt={homeTeam.name}
-      width={72}
-      height={54}
-      className="rounded"
-    />
-
-    <span className="mt-3 font-semibold text-center">
-      {homeTeam.name}
-    </span>
-  </button>
-
-  <div className="text-center min-w-[90px]">
-    <div className="text-2xl font-bold text-gray-500">
-      VS
-    </div>
-
-    {home_score !== null && away_score !== null && (
-      <div className="mt-3 text-3xl font-bold text-gray-900 dark:text-white">
-        {home_score} - {away_score}
-      </div>
-    )}
-
-    {result && (
-      <div className="mt-3">
-        <p className="font-semibold text-green-600">
-          Resultado:{" "}
-          {result === "HOME"
-            ? homeTeam.name
-            : result === "AWAY"
-            ? awayTeam.name
-            : "Empate"}
-        </p>
-      </div>
-    )}
-
-    {result && predictionModified && (
-      <div className="mt-3">
-        {correct ? (
-          <span className="text-green-600 font-bold">
-            ✅ +{points} pts
+          <span className="mt-3 font-semibold text-center">
+            {homeTeam.name}
           </span>
-        ) : (
-          <span className="text-red-600 font-bold">
-            ❌ Fallaste
+        </button>
+
+        <div className="text-center min-w-[90px]">
+          <div className="text-2xl font-bold text-gray-500">VS</div>
+
+          {home_score !== null && away_score !== null && (
+            <div className="mt-3 text-3xl font-bold text-gray-900 dark:text-white">
+              {home_score} - {away_score}
+            </div>
+          )}
+
+          {result && (
+            <div className="mt-3">
+              <p className="font-semibold text-green-600">
+                Resultado:{" "}
+                {result === "HOME"
+                  ? homeTeam.name
+                  : result === "AWAY"
+                  ? awayTeam.name
+                  : ""}
+              </p>
+            </div>
+          )}
+
+          {result && predictionModified && (
+            <div className="mt-3">
+              {correct ? (
+                <span className="text-green-600 font-bold">
+                  ✅ +{points} pts
+                </span>
+              ) : (
+                <span className="text-red-600 font-bold">❌ Fallaste</span>
+              )}
+            </div>
+          )}
+        </div>
+
+        <button
+          type="button"
+          disabled={isLocked}
+          onClick={() => setPrediction("AWAY")}
+          className={`
+            flex flex-col items-center rounded-2xl border p-4 transition w-36
+            disabled:opacity-50 disabled:cursor-not-allowed
+            ${
+              prediction === "AWAY"
+                ? "border-blue-600 bg-blue-50 dark:bg-blue-950"
+                : "border-gray-200 bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800"
+            }
+          `}
+        >
+          <Image
+            src={awayTeam.flag_url}
+            alt={awayTeam.name}
+            width={72}
+            height={54}
+            className="rounded"
+          />
+
+          <span className="mt-3 font-semibold text-center">
+            {awayTeam.name}
           </span>
-        )}
+        </button>
       </div>
-    )}
-  </div>
-
-  <button
-    type="button"
-    disabled={isLocked}
-    onClick={() => setPrediction("AWAY")}
-    className={`
-      flex flex-col items-center rounded-2xl border p-4 transition w-36
-      disabled:opacity-50 disabled:cursor-not-allowed
-      ${
-        prediction === "AWAY"
-          ? "border-blue-600 bg-blue-50 dark:bg-blue-950"
-          : "border-gray-200 bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800"
-      }
-    `}
-  >
-    <Image
-      src={awayTeam.flag_url}
-      alt={awayTeam.name}
-      width={72}
-      height={54}
-      className="rounded"
-    />
-
-    <span className="mt-3 font-semibold text-center">
-      {awayTeam.name}
-    </span>
-  </button>
-
-</div>
 
       {predictionModified && (
         <p className="mt-4 text-green-600 text-sm font-medium text-center">
