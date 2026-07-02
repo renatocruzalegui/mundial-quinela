@@ -92,20 +92,20 @@ export default async function DashboardPage() {
         .select("bet_type, team_id, points");
 
     const firstRoundOf16Match =
-        matches
-            ?.filter(
-            (match) => match.stage?.toLowerCase() === "Octavos de final"
-            )
-            .sort(
-            (a, b) =>
-                new Date(a.kickoff).getTime() - new Date(b.kickoff).getTime()
-            )[0] ?? null;
+    matches
+        ?.filter(
+        (match) => match.stage?.toLowerCase() === "octavos de final"
+        )
+        .sort(
+        (a, b) =>
+            new Date(a.kickoff).getTime() - new Date(b.kickoff).getTime()
+        )[0] ?? null;
 
-        const extraPredictionsDeadline = firstRoundOf16Match?.kickoff ?? null;
+    const extraPredictionsDeadline = firstRoundOf16Match?.kickoff ?? null;
 
-        const extraPredictionsLocked = extraPredictionsDeadline
-        ? new Date(extraPredictionsDeadline) <= new Date()
-        : false;
+    const extraPredictionsLocked = extraPredictionsDeadline
+    ? new Date(extraPredictionsDeadline) <= new Date()
+    : false;
 
     return (
         <div className="max-w-6xl mx-auto px-4">
