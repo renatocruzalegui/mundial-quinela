@@ -164,7 +164,7 @@ useEffect(() => {
       <h2 className="text-2xl font-bold mb-2">Predicciones extras</h2>
 
       <p className="text-gray-600 dark:text-gray-300 mb-3">
-        Estas predicciones se deben completar antes del inicio de las eliminatorias.
+        No olvides completar las predicciones extras. Estas estarán disponibles hasta el inicio del primer partido de Octavos de Final.
       </p>
       {deadline && (
         <div className="mb-3 rounded-xl border border-blue-200 bg-blue-50 p-4 text-center dark:border-blue-800 dark:bg-blue-950">
